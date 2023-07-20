@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE-edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Questionário</title>
+    <link rel="stylesheet" href="estilo.css">
+</head>
+<body>
+    <h1>Teste - Estilo de Aprendizagem</h1>
+    <main>
+        <div class="pergunta" id="question"></div>
+        <div  class="alternativas" id="options"></div>
+        <div class="btt">
+            <!-- <button class="btUm" onclick="nextQuestion()">Próxima questão</button> -->
+            <button class="btDois" onclick="showResults()">Mostrar Resultados</button>
+        </div>
+    </main> 
+
+
+    <script>
+        // Definição das perguntas, opções e pontos correspondentes
+        const questions = [
+            {
+                question: " Ao aprender algo novo, prefiro:",
+                options: ["a) Ver diagramas, gráficos ou imagens. ",
+                 "b) Ouvir alguém explicando verbalmente.",
+                  "c) Ler informações e textos escritos.", 
+                  "d) Fazer atividades práticas ou experimentos."],
+                points: ["A", "B", "C", "D"],
+                selectedOption: null
+            },
+            {
+                question: " Ao estudar para uma prova, eu me sinto mais confortável:",
+                options: ["a) Observando infográficos e esquemas visuais.",
+                 "b) Revisando em voz alta ou discutindo com pessoas.",
+                  "c) Lendo o material do livro ou apostila.",
+                   "d) Fazer atividades práticas."],
+                points: ["A", "B", "C", "D"],
+                selectedOption: null
+            },
+            {
+                question: " Em uma aula ou palestra, eu aprendo melhor quando:",
+                options: ["a) Posso ver apresentações de slides ou vídeos.",
+                 "b) O professor explica verbalmente e faz perguntas.",
+                  "c) Tenho um roteiro para seguir junto com a explicação.",
+                   "d) Posso participar de práticas ou atividades em grupo."],
+                points: ["A", "B", "C", "D"],
+                selectedOption: null
+            },
+            {
+                question: " Quando tenho que seguir direções para uma tarefa, prefiro:",
+                options: ["a) Ver um mapa ou gráfico visual das instruções: ",
+                 "b) Ouvir alguém me explicando verbalmente.",
+                  "c) Ler as instruções em um documento.",
+                   "d) Aprender fazendo e descobrindo por mim mesmo."],
+                points: ["A", "B", "C", "D"],
+                selectedOption: null
+            },
+            {
+                question: " Para lembrar de informações importantes, eu costumo:",
+                options: ["a) Fazer anotações escritas ou desenhos esquemáticos.",
+                 "b) Repetir em voz alta ou explicar para alguém.",
+                  "c) Ler e reler o conteúdo várias vezes.",
+                   "d) Praticar ou revisar por meio de exercícios e repetições."],
+                points: ["A", "B", "C", "D"],
+                selectedOption: null
+            },
+            {
+                question: " Ao aprender sobre um lugar ou evento histórico, eu prefiro:",
+                options: ["a) Ver fotos, mapas ou vídeos relacionados.",
+                 "b) Ouvir histórias e narrativas sobre o assunto.",
+                  "c) Ler sobre o lugar ou evento em livros ou artigos.",
+                   "d) Fazer uma visita guiada ou uma recriação da situação."],
+                points: ["A", "B", "C", "D"],
+                selectedOption: null
+            },
+            {
+                question: " Quando tenho que resolver um problema, eu geralmente:",
+                options: ["a) Prefiro trabalhar em grupo para discutir as possibilidades.",
+                 "b) Penso em voz alta e discuto ideias com outras pessoas.",
+                  "c) Escrevo toda as informações relevantes e crio diagramas.",
+                   "d) Realizo tentativa e erro até encontra a solução."],
+                points: ["A", "B", "C", "D"],
+                selectedOption: null
+            },
+            {
+                question: " Em um ambiente de aprendizagem, eu me sinto mais confortável:",
+                options: ["a) Em uma sala de aula organizada, com apresentações visuais.",
+                 "b) Em discussões em grupo ou seminários.",
+                  "c) Em ambientes tranquilos para me concentrar na leitura e escrita.",
+                   "d) Em ambientes práticos, onde posso interagir com materiais."],
+                points: ["A", "B", "C", "D"],
+                selectedOption: null
+            },
+            {
+                question: " Ao trabalhar em projetos em grupo, eu gosto de:",
+                options: ["a) Cria apresentações visuais para compartilhar ideias.",
+                 "b) Realizar debates com os membros do grupo. ",
+                  "c) Dividir as tarefas práticas entre os menbros.",
+                   "d) Trabalhar em projetos que envolva ação e experimentação."],
+                points: ["A", "B", "C", "D"],
+                selectedOption: null
+            },
+            {
+                question: " Quando preciso aprender algo novo, eu me sinto mais motivado:",
+                options: ["a) Quando posso visualizar o resultado final do aprendizado.",
+                 "b) Quando ouço elogios e encorajamentos durante  o processo.",
+                  "c) Quando posso interagir com o assunto de forma prática.",
+                   "d) Quando posso colocar em prática o que eu aprendi."],
+                points: ["A", "B", "C", "D"],
+                selectedOption: null
+            },
+            {
+                question: " Para melhorar minhas habilidades em esportes ou atividades físicas, eu prefiro:",
+                options: ["a) Assistir vídeos ou tutoriais de técnicas.",
+                 "b) Ouvir instruções de um trainador ou praticante experiente.",
+                  "c) Ler livros e artigos sobre a técnica e a estratégia.",
+                   "d) Participar ativamente em jogos e treinos práticos."],
+                points: ["A", "B", "C", "D"],
+                selectedOption: null
+            },
+            {
+                question: " Quando estou aprendendo algo novo, eu me sinto mais conectado ao assunto quando:",
+                options: ["a) Posso ver demonstrações visuais ou gráficos.",
+                 "b) Ouvir alguém explicar e discutir o tópico. ",
+                  "c) Ler e escrever sobre o assunto em detalhes.",
+                   "d) Posso praticar e experimentar com o conteúdo. "],
+                points: ["A", "B", "C", "D"],
+                selectedOption: null
+            },
+
+            // Adicione mais perguntas aqui
+        ];
+
+        let currentQuestionIndex = 0;
+
+        // Função para exibir a pergunta atual e suas opções
+        function showQuestion() {
+            const questionDiv = document.getElementById("question");
+            const optionsDiv = document.getElementById("options");
+
+            questionDiv.textContent = questions[currentQuestionIndex].question;
+            optionsDiv.innerHTML = "";
+
+            for (let i = 0; i < questions[currentQuestionIndex].options.length; i++) {
+                const optionButton = document.createElement("button");
+                optionButton.textContent = questions[currentQuestionIndex].options[i];
+                optionButton.onclick = () => selectOption(i);
+                //optionsDiv.appendChild(optionButton);
+                optionButton.onclick = () => {
+                    selectOption(i);
+                    nextQuestion(); // Chamada para a próxima pergunta após clicar na opção
+                };
+                optionsDiv.appendChild(optionButton);
+            }
+        }
+
+        // Função para selecionar uma opção
+        function selectOption(optionIndex) {
+            questions[currentQuestionIndex].selectedOption = optionIndex;
+        }
+
+        // Função para ir para a próxima pergunta
+        function nextQuestion() {
+            currentQuestionIndex++;
+          if (currentQuestionIndex < questions.length - 1) {
+                showQuestion();
+            }else{
+             alert("Questionário finalizado!");
+            }
+            
+        }
+
+        // Função para calcular e mostrar os resultados
+        function showResults() {
+            const results = {};
+
+            for (let i = 0; i < questions.length; i++) {
+                const selectedOption = questions[i].selectedOption;
+                if (selectedOption !== null) {
+                    const points = questions[i].points[selectedOption];
+                    const option = questions[i].options[selectedOption];
+
+                    if (results[option]) {
+                        results[option] += points;
+                    } else {
+                        results[option] = points;
+                    }
+                }
+            }
+
+            let resultMessage = "Resultados:\n";
+            for (let option in results) {
+                resultMessage += `${option}: ${results[option]} ponto(s)\n`;
+            }
+
+          alert(resultMessage);
+            
+
+            showSumPoints();
+        }
+        //---------------------
+        function showResults() {
+            const results = {
+                a: 0,
+                b: 0,
+                c: 0,
+                d: 0,
+            };
+    
+            for (let i = 0; i < questions.length; i++) {
+                const selectedOption = questions[i].selectedOption;
+                if (selectedOption !== null) {
+                    const option = questions[i].options[selectedOption].charAt(0).toLowerCase();
+                    results[option]++;
+                }
+            }
+    
+            const maxOptions = getMaxProperty(results);
+            let profileMessage = "";
+    
+            if (maxOptions.length === 1) {
+                const profile = maxOptions[0];
+                if (profile === "a") {
+                    profileMessage = `Resultado: VISUAL ${results.a} ponto(s)`+"\n"+`AUDITIVO ${results.b} ponto(s)` +"\n"+ `LEITURA/ESCRITA ${results.c} ponto(s)`+"\n"+`CINESTÉSICO ${results.d} ponto(s)`;
+                } else if (profile === "b") {
+                    profileMessage = `Resultado: AUDITIVO ${results.b} ponto(s)`+"\n"+`VISUAL ${results.a} ponto(s)` +"\n"+ `LEITURA/ESCRITA ${results.c} ponto(s)`+"\n"+`CINESTÉSICO ${results.d} ponto(s)`;
+                } else if (profile === "c") {
+                    profileMessage = `Resultado: LEITURA/ESCRITA ${results.c} ponto(s)`+"\n"+`VISUAL ${results.a} ponto(s)` +"\n"+ `AUDITIVO ${results.b} ponto(s)`+"\n"+`CINESTÉSICO ${results.d} ponto(s)`;
+                } else if (profile === "d") {
+                    profileMessage = `Resultado: CINESTÉSICO ${results.d} ponto(s)`+"\n"+`VISUAL ${results.a} ponto(s)` +"\n"+ `AUDITIVO ${results.b} ponto(s)`+"\n"+`LEITURA/ESCRITA  ${results.c} ponto(s)`;
+                }
+            } else {
+                profileMessage = "Você possui características de múltiplos perfis!" + "\n" + `Resultado: VISUAL ${results.a} ponto(s)`+"\n"+`AUDITIVO ${results.b} ponto(s)` +"\n"+ `LEITURA/ESCRITA ${results.c} ponto(s)`+"\n"+`CINESTÉSICO ${results.d} ponto(s)`;
+            }
+    
+            alert(profileMessage);
+        }
+    
+        function getMaxProperty(obj) {
+            let max = -Infinity;
+            let maxProps = [];
+            for (const prop in obj) {
+                if (obj[prop] > max) {
+                    max = obj[prop];
+                    maxProps = [prop];
+                } else if (obj[prop] === max) {
+                    maxProps.push(prop);
+                }
+            }
+            return maxProps;
+        }
+       
+         //------------------------ 
+        const buttons = document.querySelectorAll(".alternativas button");
+
+        buttons.forEach((button) => {
+            button.addEventListener("click", () => {
+                buttons.forEach((btn) => {
+                    btn.classList.remove("clicked"); // Remove a classe "clicked" de todos os botões
+                });
+                button.classList.add("clicked"); // Adiciona a classe "clicked" ao botão clicado
+            });
+        });
+        // Exibição da primeira pergunta ao carregar a página
+        showQuestion();
+                
+    </script>
+</body>
+</html>

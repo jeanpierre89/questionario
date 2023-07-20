@@ -1,0 +1,95 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Work+Sans:wght@300;400;500;600&display=swap');
+
+
+body {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 5px;
+    background: linear-gradient(90deg, rgb(67, 28, 221) 0%, rgb(66, 123, 248) 100%);
+}
+
+h1 {
+    text-align: center;
+    color: white;
+    font-family: 'Work Sans', sans-serif;
+}
+main {
+    
+    padding: 10px;
+    border-radius: 10px;
+    width: 100%;
+    max-width: 700px;
+    min-height: 400px;
+}
+
+.pergunta {
+    margin-top: 25px;
+    /*background-color: #f39c12;  Laranja
+    border-radius: 5px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+    */
+    padding: 10px;
+    height: 30px;   
+    display: flex;
+    text-align: center;
+    font-size: 30px ;
+    font-family: 'Work Sans', sans-serif;
+    font-weight: bold;
+    color: #FED662;   
+
+}
+.alternativas {
+    margin-top: 50px;
+    margin-bottom: none;
+    display: flex;
+    flex-direction: column;
+   
+}
+.alternativas button {
+    margin: 5px 0; /* Adiciona espaço vertical entre as alternativas */
+    background-color: #FED662;;
+    border-radius: 35px;
+    border-color: #FED662;
+    padding: 15px;
+    transition: background-color 0.3s;
+    font-size: 18px;
+    font-family: 'Work Sans', sans-serif;
+    font-weight: bold;
+}
+.alternativas button:active {
+    background-color: #34dbb1;
+
+}
+.btt {
+    padding-top: 20px;
+    padding-left: 260px;
+
+}
+.btt .btDois {
+    font-family: 'Work Sans', sans-serif;
+    font-weight: bold; 
+    background-color: rgb(56, 191, 233);
+    border-radius: 5px;
+    border: 5px white;
+    right: 15px;
+    height: 40px;
+    color: white;
+    transition: background-color 0.3s;
+}
+.btt .btDois:active {
+    background-color: #2c075e;
+
+}
+
+
+
+
+
+
+
+
+
