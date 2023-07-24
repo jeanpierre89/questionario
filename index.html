@@ -231,16 +231,16 @@
             if (maxOptions.length === 1) {
                 const profile = maxOptions[0];
                 if (profile === "a") {
-                    profileMessage = ` VISUAL ${results.a} ponto(s)`+"\n"+`AUDITIVO ${results.b} ponto(s)` +"\n"+ `LEITURA/ESCRITA ${results.c} ponto(s)`+"\n"+`CINESTÉSICO ${results.d} ponto(s)`;
+                    profileMessage = ` VISUAL ${results.a} ponto(s);  `+"\n\n"+`AUDITIVO ${results.b} ponto(s);  ` +"\n\n"+ `LEITURA/ESCRITA ${results.c} ponto(s);  `+"\n\n"+`CINESTÉSICO ${results.d} ponto(s).`;
                 } else if (profile === "b") {
-                    profileMessage = ` AUDITIVO ${results.b} ponto(s)`+"\n"+`VISUAL ${results.a} ponto(s)` +"\n"+ `LEITURA/ESCRITA ${results.c} ponto(s)`+"\n"+`CINESTÉSICO ${results.d} ponto(s)`;
+                    profileMessage = ` AUDITIVO ${results.b} ponto(s);  `+"\n\n"+`VISUAL ${results.a} ponto(s);  ` +"\n\n"+ `LEITURA/ESCRITA ${results.c} ponto(s);  `+"\n\n"+`CINESTÉSICO ${results.d} ponto(s).`;
                 } else if (profile === "c") {
-                    profileMessage = ` LEITURA/ESCRITA ${results.c} ponto(s)`+"\n"+`VISUAL ${results.a} ponto(s)` +"\n"+ `AUDITIVO ${results.b} ponto(s)`+"\n"+`CINESTÉSICO ${results.d} ponto(s)`;
+                    profileMessage = ` LEITURA/ESCRITA ${results.c} ponto(s);  `+"\n\n"+`VISUAL ${results.a} ponto(s);  ` +"\n\n"+ `AUDITIVO ${results.b} ponto(s);  `+"\n"+`CINESTÉSICO ${results.d} ponto(s).`;
                 } else if (profile === "d") {
-                    profileMessage = ` CINESTÉSICO ${results.d} ponto(s)`+"\n"+`VISUAL ${results.a} ponto(s)` +"\n"+ `AUDITIVO ${results.b} ponto(s)`+"\n"+`LEITURA/ESCRITA  ${results.c} ponto(s)`;
+                    profileMessage = ` CINESTÉSICO ${results.d} ponto(s);  `+"\n\n"+`VISUAL ${results.a} ponto(s);  ` +"\n\n"+ `AUDITIVO ${results.b} ponto(s);  `+"\n\n"+`LEITURA/ESCRITA  ${results.c} ponto(s).`;
                 }
             } else {
-                profileMessage = " ` VISUAL ${results.a} ponto(s)`+"\n"+`AUDITIVO ${results.b} ponto(s)` +"\n"+ `LEITURA/ESCRITA ${results.c} ponto(s)`+"\n"+`CINESTÉSICO ${results.d} ponto(s)`;
+                profileMessage =  ` VISUAL ${results.a} ponto(s);  `+"\n\n"+`AUDITIVO ${results.b} ponto(s);  ` +"\n\n"+ `LEITURA/ESCRITA ${results.c} ponto(s);  `+"\n\n"+`CINESTÉSICO ${results.d} ponto(s).`;
             }
     
             //alert(profileMessage);
