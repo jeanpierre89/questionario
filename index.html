@@ -117,7 +117,7 @@
             {
                 question: " Para melhorar minhas habilidades em esportes ou atividades físicas, eu prefiro:",
                 options: ["a) Assistir vídeos ou tutoriais de técnicas.",
-                 "b) Ouvir instruções de um trainador ou praticante experiente.",
+                 "b) Ouvir instruções de um treinador ou praticante experiente.",
                   "c) Ler livros e artigos sobre a técnica e a estratégia.",
                    "d) Participar ativamente em jogos e treinos práticos."],
                 points: ["A", "B", "C", "D"],
@@ -231,16 +231,16 @@
             if (maxOptions.length === 1) {
                 const profile = maxOptions[0];
                 if (profile === "a") {
-                    profileMessage = `Resultado: VISUAL ${results.a} ponto(s)`+"\n"+`AUDITIVO ${results.b} ponto(s)` +"\n"+ `LEITURA/ESCRITA ${results.c} ponto(s)`+"\n"+`CINESTÉSICO ${results.d} ponto(s)`;
+                    profileMessage = ` VISUAL ${results.a} ponto(s)`+"\n"+`AUDITIVO ${results.b} ponto(s)` +"\n"+ `LEITURA/ESCRITA ${results.c} ponto(s)`+"\n"+`CINESTÉSICO ${results.d} ponto(s)`;
                 } else if (profile === "b") {
-                    profileMessage = `Resultado: AUDITIVO ${results.b} ponto(s)`+"\n"+`VISUAL ${results.a} ponto(s)` +"\n"+ `LEITURA/ESCRITA ${results.c} ponto(s)`+"\n"+`CINESTÉSICO ${results.d} ponto(s)`;
+                    profileMessage = ` AUDITIVO ${results.b} ponto(s)`+"\n"+`VISUAL ${results.a} ponto(s)` +"\n"+ `LEITURA/ESCRITA ${results.c} ponto(s)`+"\n"+`CINESTÉSICO ${results.d} ponto(s)`;
                 } else if (profile === "c") {
-                    profileMessage = `Resultado: LEITURA/ESCRITA ${results.c} ponto(s)`+"\n"+`VISUAL ${results.a} ponto(s)` +"\n"+ `AUDITIVO ${results.b} ponto(s)`+"\n"+`CINESTÉSICO ${results.d} ponto(s)`;
+                    profileMessage = ` LEITURA/ESCRITA ${results.c} ponto(s)`+"\n"+`VISUAL ${results.a} ponto(s)` +"\n"+ `AUDITIVO ${results.b} ponto(s)`+"\n"+`CINESTÉSICO ${results.d} ponto(s)`;
                 } else if (profile === "d") {
-                    profileMessage = `Resultado: CINESTÉSICO ${results.d} ponto(s)`+"\n"+`VISUAL ${results.a} ponto(s)` +"\n"+ `AUDITIVO ${results.b} ponto(s)`+"\n"+`LEITURA/ESCRITA  ${results.c} ponto(s)`;
+                    profileMessage = ` CINESTÉSICO ${results.d} ponto(s)`+"\n"+`VISUAL ${results.a} ponto(s)` +"\n"+ `AUDITIVO ${results.b} ponto(s)`+"\n"+`LEITURA/ESCRITA  ${results.c} ponto(s)`;
                 }
             } else {
-                profileMessage = "Você possui características de múltiplos perfis!" + "\n" + `Resultado: VISUAL ${results.a} ponto(s)`+"\n"+`AUDITIVO ${results.b} ponto(s)` +"\n"+ `LEITURA/ESCRITA ${results.c} ponto(s)`+"\n"+`CINESTÉSICO ${results.d} ponto(s)`;
+                profileMessage = " ` VISUAL ${results.a} ponto(s)`+"\n"+`AUDITIVO ${results.b} ponto(s)` +"\n"+ `LEITURA/ESCRITA ${results.c} ponto(s)`+"\n"+`CINESTÉSICO ${results.d} ponto(s)`;
             }
     
             //alert(profileMessage);
