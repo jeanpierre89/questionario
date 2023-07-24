@@ -5,9 +5,11 @@
     <meta http-equiv="X-UA-Compatible" content="IE-edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Questionário</title>
+     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.20/dist/sweetalert2.min.css">
     <link rel="stylesheet" href="estilo.css">
 </head>
 <body>
+     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.20/dist/sweetalert2.all.min.js"></script>
     <h1>Teste - Estilo de Aprendizagem</h1>
     <main>
         <div class="pergunta" id="question"></div>
@@ -168,7 +170,12 @@
           if (currentQuestionIndex < questions.length - 1) {
                 showQuestion();
             }else{
-             alert("Questionário finalizado!");
+             //alert("Questionário finalizado!");
+              Swal.fire({
+                    title: "Questionário finalizado!",
+                    icon: "success",
+                    confirmButtonText: "OK",
+                  });
             }
             
         }
@@ -236,7 +243,13 @@
                 profileMessage = "Você possui características de múltiplos perfis!" + "\n" + `Resultado: VISUAL ${results.a} ponto(s)`+"\n"+`AUDITIVO ${results.b} ponto(s)` +"\n"+ `LEITURA/ESCRITA ${results.c} ponto(s)`+"\n"+`CINESTÉSICO ${results.d} ponto(s)`;
             }
     
-            alert(profileMessage);
+            //alert(profileMessage);
+            Swal.fire({
+                title: "Resultados:",
+                html: profileMessage,
+                icon: "info",
+                confirmButtonText: "OK",
+              });
         }
     
         function getMaxProperty(obj) {
